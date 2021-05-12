@@ -26,6 +26,8 @@ BEGIN
 
 	SET @rowcount = @rowcount + @@ROWCOUNT
 
+--  PRINT @rowcount
+
 --  WAITFOR DELAY '00:00:01'
 
 END
