@@ -1,0 +1,23 @@
+/**************************************************************************************
+*** Map a network drive on SQL 2000/2005
+*** 
+*** Map a network drive under own user credentials for use with backups etc, on 
+*** Windows 2003 and SQL 2000/2005. Hopefully never have to use this again.
+***
+*** Ver		Date		Author
+*** 1.0		08/03/17	Alex Stuart
+*** 
+***************************************************************************************/
+
+
+EXEC sp_configure 'show advanced options', 1
+GO
+
+RECONFIGURE
+GO
+
+EXEC sp_configure 'xp_cmdshell', 1
+GO
+
+EXEC xp_cmdshell 'NET USE Z: \\networkshare\letter$ password /USER:domain\username'
+
